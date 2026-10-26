@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARKON · Robolution | Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="arkon-imagotipo.png" alt="ARKON Imagotipo">
+            </a>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyecto.html">Proyecto</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container contact-container">
+        <div class="contact-info">
+            <p class="pre-title">Solicitud de alianza</p>
+            <h1 class="main-title">¿Te unirás a la Robolution o resistirás?</h1>
+            <p class="description">ARKON está reuniendo a quienes quieren formar parte del cambio. Deja tu mensaje y registra tu decisión.</p>
+        </div>
+        <div class="contact-form-container">
+            <form action="#" method="POST" id="decision-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="comentario">Tu decisión / Comentario</label>
+                    <textarea id="comentario" name="comentario" rows="5" required placeholder="Escribe aquí tu mensaje para ARKON..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar decisión</button>
+            </form>
+            <p class="form-disclaimer">Este formulario es una demostración de interfaz; no envía ni almacena mensajes reales.</p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <span class="footer-brand">ARKON · Robolution</span>
+            <span class="footer-slogan">El futuro está en marcha</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,616 @@
+/*
+ * ARKON - Robolution Styles
+ * Proyecto académico de nivel inicial
+ */
+
+:root {
+    /* Paleta de colores */
+    --bg-main-dark: #101317;
+    --bg-card-dark: #171B20;
+    --bg-accent-dark: #242A31;
+    --border-dark: #292E34;
+    --steel: #C0C5CA;
+    --text-light: #E0E3E6;
+    --robot-fill: #8A9199;
+    --red-main: #8B1D27;
+    --red-bright: #A31D2A;
+    --pink-accent: #D47F87;
+
+    /* Tipografía */
+    --font-main: 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Estilos Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header & Footer */
+.main-header {
+    background-color: var(--bg-card-dark);
+    border-bottom: 1px solid var(--border-dark);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    display: block;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-list a {
+    color: var(--steel);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-list a:hover, .nav-list a.active {
+    color: var(--red-bright);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--steel);
+    transition: all 0.3s ease;
+}
+
+.hamburger { top: 8px; }
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 16px; }
+
+.main-footer {
+    background-color: var(--bg-card-dark);
+    border-top: 1px solid var(--border-dark);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand, .footer-slogan {
+    font-size: 0.9rem;
+    color: var(--steel);
+}
+
+/* Tipografías comunes */
+.pre-title {
+    color: var(--red-main);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.main-title {
+    color: var(--steel);
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.sub-title {
+    color: var(--steel);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Botones */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: var(--red-main);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--red-bright);
+}
+
+.btn-secondary {
+    background-color: var(--bg-accent-dark);
+    color: var(--text-light);
+    border: 1px solid var(--border-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-dark);
+}
+
+/* Inicio - Hero */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 6rem 2rem;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Robot CSS */
+.hero-robot-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.robot-halo {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--red-main) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0.4;
+    z-index: -1;
+    animation: pulseHalo 4s infinite ease-in-out;
+}
+
+@keyframes pulseHalo {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.5; }
+}
+
+.robot {
+    position: relative;
+    width: 200px;
+    height: 450px;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+.robot:focus {
+    box-shadow: 0 0 0 3px var(--pink-accent);
+}
+
+/* Cabeza */
+.robot-head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 70px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 40%, 100% 100%, 0% 100%, 0% 40%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.robot-eye {
+    width: 12px;
+    height: 12px;
+    background-color: var(--red-main);
+    border-radius: 2px;
+    transform: rotate(10deg);
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.robot-eye.right {
+    transform: rotate(-10deg);
+}
+
+/* Cuerpo */
+.robot-neck {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+}
+
+.robot-chest {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 100px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.robot-reactor {
+    width: 30px;
+    height: 30px;
+    background-color: var(--red-main);
+    border-radius: 50%;
+    border: 2px solid var(--steel);
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.robot-abdomen {
+    position: absolute;
+    top: 190px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 60px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    border-radius: 0 0 30px 30px;
+}
+
+/* Brazos */
+.robot-arms {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.robot-arm {
+    width: 30px;
+    height: 140px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    position: relative;
+}
+
+.left-arm { transform: rotate(10deg); }
+.right-arm { transform: rotate(-10deg); }
+
+.robot-elbow {
+    position: absolute;
+    bottom: 40px;
+    left: -3px;
+    width: 36px;
+    height: 36px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    border-radius: 50%;
+}
+
+.robot-hand {
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: 36px;
+    height: 20px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    border-radius: 4px;
+}
+
+/* Piernas */
+.robot-legs {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.robot-leg {
+    width: 35px;
+    height: 140px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    position: relative;
+}
+
+.robot-knee {
+    position: absolute;
+    top: 60px;
+    left: -3px;
+    width: 41px;
+    height: 41px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+    border-radius: 50%;
+}
+
+.robot-foot {
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: 50px;
+    height: 20px;
+    background-color: var(--robot-fill);
+    border: 3px solid var(--steel);
+}
+
+/* Estado Activado del Robot */
+.robot.active .robot-eye,
+.robot.active .robot-reactor {
+    background-color: var(--red-bright);
+    box-shadow: 0 0 20px var(--red-bright);
+}
+
+/* Inicio - Tarjetas */
+.info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.card {
+    background-color: var(--bg-card-dark);
+    border-left: 5px solid var(--red-main);
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: var(--steel);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-divider {
+    height: 2px;
+    background-color: var(--border-dark);
+    width: 50px;
+    margin-bottom: 1.5rem;
+}
+
+/* Proyecto - Layout */
+.narrow-content {
+    max-width: 800px;
+    padding: 6rem 2rem;
+}
+
+.project-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.project-intro .phrase {
+    font-size: 1.2rem;
+    color: var(--steel);
+    font-style: italic;
+}
+
+.project-phases {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.phase-card {
+    background-color: var(--bg-card-dark);
+    border-left: 5px solid var(--red-main);
+    padding: 2rem;
+}
+
+.phase-title {
+    color: var(--steel);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Contacto - Layout */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 6rem 2rem;
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form-container {
+    background-color: var(--bg-card-dark);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--steel);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, .form-group textarea {
+    padding: 0.8rem;
+    background-color: var(--bg-accent-dark);
+    border: 1px solid var(--border-dark);
+    color: var(--text-light);
+    font-family: inherit;
+    border-radius: 4px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--red-main);
+}
+
+.form-disclaimer {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--steel);
+    text-align: center;
+    font-style: italic;
+}
+
+/*
+ * RESPONSIVE & THEMES
+ * Escritorio: Oscuro
+ * Móvil: Contenido Principal Claro
+ */
+
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+    .hero-content {
+        align-items: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Menu Hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-card-dark);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--border-dark);
+    }
+    .nav-list.open {
+        display: flex;
+    }
+    .nav-list a {
+        font-size: 1.2rem;
+        padding: 1rem 0;
+    }
+
+    /* Tema Claro en móvil para contenido principal */
+    body {
+        background-color: var(--text-light);
+        color: var(--bg-main-dark);
+    }
+
+    .main-header, .main-footer {
+        background-color: var(--bg-card-dark);
+        color: var(--text-light);
+    }
+
+    .pre-title, .main-title, .sub-title, .description, .phrase, .footer-brand, .footer-slogan {
+        color: var(--bg-main-dark);
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .card, .phase-card, .contact-form-container {
+        background-color: var(--bg-accent-dark);
+        color: var(--text-light);
+    }
+
+    /* Robot en móvil: contornos gris oscuro */
+    .robot-head, .robot-neck, .robot-chest, .robot-abdomen, .robot-arm, .robot-elbow, .robot-hand, .robot-leg, .robot-knee, .robot-foot {
+        border-color: #333;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
